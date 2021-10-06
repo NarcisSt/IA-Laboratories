@@ -1,6 +1,6 @@
 # IA Lab 2-3
 
-Author: Barat Narcis Stefan
+Authors: Barat Narcis Stefan & Gradinariu Florin Marian
 
 ## Statement
 
@@ -14,8 +14,8 @@ Pe malul stâng al unui râu sunt n cupluri (soț-soție) și o barcă în care 
 
 ## Steps
 
-- &#9744; 1. (0.2) Alegeți o reprezentare a unei stări a problemei. Reprezentarea trebuie să fie suficient de explicită pentru a conține toate informaţiile necesare pentru continuarea găsirii unei soluții dar trebuie să fie și suficient de formalizată pentru a fi ușor de prelucrat/memorat.
-- &#9744; 2. (0.2) Identificați stările speciale (inițială și finală) și implementați funcția de inițializare (primește ca parametrii instanța problemei, întoarce starea inițială) și funcția booleană care verifică dacă o stare primită ca parametru este finală.
+- &#9745; 1. (0.2) Alegeți o reprezentare a unei stări a problemei. Reprezentarea trebuie să fie suficient de explicită pentru a conține toate informaţiile necesare pentru continuarea găsirii unei soluții dar trebuie să fie și suficient de formalizată pentru a fi ușor de prelucrat/memorat.
+- &#9745; 2. (0.2) Identificați stările speciale (inițială și finală) și implementați funcția de inițializare (primește ca parametrii instanța problemei, întoarce starea inițială) și funcția booleană care verifică dacă o stare primită ca parametru este finală.
 - &#9744; 3. (0.2) Implementați tranzițiile ca o funcție care primește ca parametri o stare și parametrii tranziției și întoarce starea rezultată în urma aplicării tranziției. Validarea tranziției se face într-o funcție booleană separată, cu aceeași parametrii. 
 - &#9744; 4. (0.2) Implementați strategia Backtracking.
 - &#9744; 5. (0.2) Implementați strategia BFS.
