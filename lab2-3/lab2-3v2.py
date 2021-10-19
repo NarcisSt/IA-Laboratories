@@ -174,7 +174,7 @@ if __name__ == '__main__':
     elif (selection == 2):
         goal = BFS()  # search with BFS, implemented
     elif (selection == 3):
-        goal = HILL()  # search with  Hillclimbing, not implemeted yet
+        goal = HILL()  # search with  Hillclimbing, not implemented yet
     elif (selection == 4):
         goal = ASTAR()  # search with A*, implemented
     else:
