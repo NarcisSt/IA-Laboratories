@@ -126,12 +126,25 @@ def HILL():
 
 
 def ASTAR():
-    print("Not implemented yet")
+    statesNumber = 0
+    while True:
+        statesNumber = statesNumber + 1
+        print("Visited states: ", statesNumber)
+
+        frontier.sort(key=lambda state: state.f())  # sort frontier according to evaluation function
+
+        current = frontier.pop(0)  # examine first item of the frontier (item with the lowest evaluation function)
+
+        if h(current) == 0:  # goal check
+            return current  # if heuristic function equals 0, the goal is reached
+
+        expand(current)  # expand and add new states to frontier
+        searched.append(current)  # add the current node to the closed list
 
 
 if __name__ == '__main__':
-    couples = 3
-    capacity = 2
+    couples = int(input("Enter the number of couples: "))
+    capacity = int(input("How many persons can the boat hold: "))
 
     time.perf_counter()
 
@@ -157,7 +170,7 @@ if __name__ == '__main__':
     selection = int(input("Select the search strategy you would like to use: "))
 
     if (selection == 1):
-        goal = BKT()  # search with BKT, implemeted
+        goal = BKT()  # search with BKT, implemented
     elif (selection == 2):
         goal = BFS()  # search with BFS, implemented
     elif (selection == 3):
