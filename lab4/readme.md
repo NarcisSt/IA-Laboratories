@@ -13,7 +13,7 @@ Implementați algoritmul Forward-checking + MRV pentru problema de colorare a un
 
 ## Steps
 
-- &#9744; 1. (0.3) Modelarea problemei ca o problemă de satisfacere a  constrângerilor.
+- &#9745; 1. (0.3) Modelarea problemei ca o problemă de satisfacere a  constrângerilor.
 - &#9744; 2. (0.5) Implementarea metodei FC.
 - &#9744; 3. (0.2) Implementarea MRV.
 
