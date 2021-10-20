@@ -169,13 +169,13 @@ if __name__ == '__main__':
     print("\t(4) A*-Search-Algorithm")
     selection = int(input("Select the search strategy you would like to use: "))
 
-    if (selection == 1):
+    if selection == 1:
         goal = BKT()  # search with BKT, implemented
-    elif (selection == 2):
+    elif selection == 2:
         goal = BFS()  # search with BFS, implemented
-    elif (selection == 3):
-        goal = HILL()  # search with  Hillclimbing, not implemented yet
-    elif (selection == 4):
+    elif selection == 3:
+        HILL()
+    elif selection == 4:
         goal = ASTAR()  # search with A*, implemented
     else:
         print("Invalid selection")
