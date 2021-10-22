@@ -1,0 +1,7 @@
+Problem(
+        [
+            Region("WA", ["SA", "NT"], ["R", "G", "B"]),
+            Region("SA", ["WA", "NT"], ["R", "G"]),
+            Region("NT", ["WA", "SA"], ["G"])
+        ]
+    )
