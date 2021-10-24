@@ -15,9 +15,10 @@ class Solver(object):
 
 
 class BacktrackingForwardCheckingMRV(Solver):
-    def __init__(self, forwardcheck=True):
+    def __init__(self, forwardcheck=True, mrv=True):
         super().__init__()
         self._forward_check = forwardcheck
+        self._mrv = mrv
 
     def get_description(self):
         return "Backtracking Algorithm with Forward check and Minimum remaining values "
@@ -25,7 +26,9 @@ class BacktrackingForwardCheckingMRV(Solver):
     def FC_MRV(self, solutions, domains, vconstraints, assignments, single):
         # Minimum Remaining Values (MRV) heuristics
         lst = [(len(domains[variable]), variable) for variable in domains]
-        lst.sort()
+        mrv = self._mrv
+        if mrv:
+            lst.sort()
         for item in lst:
             if item[-1] not in assignments:
                 # Found an unassigned variable. Let's go.
@@ -72,9 +75,10 @@ class BacktrackingForwardCheckingMRV(Solver):
 
 
 class BacktrackingMinimumRemainingValues(Solver):
-    def __init__(self, forwardcheck=False):
+    def __init__(self, forwardcheck=False, mrv=True):
         super().__init__()
         self._forward_check = forwardcheck
+        self._mrv = mrv
 
     def get_description(self):
         return "Backtracking Algorithm with Minimum remaining values "
@@ -82,7 +86,9 @@ class BacktrackingMinimumRemainingValues(Solver):
     def MRV(self, solutions, domains, vconstraints, assignments, single):
         # Minimum Remaining Values (MRV) heuristics
         lst = [(len(domains[variable]), variable) for variable in domains]
-        lst.sort()
+        mrv = self._mrv
+        if mrv:
+            lst.sort()
         for item in lst:
             if item[-1] not in assignments:
                 # Found an unassigned variable. Let's go.
@@ -129,15 +135,20 @@ class BacktrackingMinimumRemainingValues(Solver):
 
 
 class BacktrackingForwardCheck(Solver):
-    def __init__(self, forwardcheck=True):
+    def __init__(self, forwardcheck=True, mrv=True):
         super().__init__()
         self._forward_check = forwardcheck
+        self._mrv = mrv
 
     def get_description(self):
         return "Backtracking Algorithm with Forward check "
 
     def FC(self, solutions, domains, vconstraints, assignments, single):
+        # Minimum Remaining Values (MRV) heuristics
         lst = [(len(domains[variable]), variable) for variable in domains]
+        mrv = self._mrv
+        if mrv:
+            lst.sort()
         for item in lst:
             if item[-1] not in assignments:
                 # Found an unassigned variable. Let's go.

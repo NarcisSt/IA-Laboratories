@@ -2,12 +2,21 @@ import time
 from lab4.problem import Problem
 from lab4.solvers import BacktrackingForwardCheck, BacktrackingForwardCheckingMRV, BacktrackingMinimumRemainingValues
 
-regions = ["T", "WA", "NT", "SA", "Q", "NSW", "V"]
-borders = [("T", "V"), ("WA", "NT"), ("WA", "SA"), ("NT", "WA"), ("NT", "Q"),
-           ("NT", "SA"), ("SA", "WA"), ("SA", "NT"), ("SA", "Q"), ("SA", "NSW"),
-           ("SA", "V"), ("Q", "NT"), ("Q", "SA"), ("Q", "NSW"), ("NSW", "Q"),
-           ("NSW", "SA"), ("NSW", "V"), ("V", "SA"), ("V", "NSW"), ("V", "T")]
-colors = ["red", "blue", "green", "yellow"]
+# regions = ["T", "WA", "NT", "SA", "Q", "NSW", "V"]
+# borders = [("T", "V"), ("WA", "NT"), ("WA", "SA"), ("NT", "WA"), ("NT", "Q"),
+#            ("NT", "SA"), ("SA", "WA"), ("SA", "NT"), ("SA", "Q"), ("SA", "NSW"),
+#            ("SA", "V"), ("Q", "NT"), ("Q", "SA"), ("Q", "NSW"), ("NSW", "Q"),
+#            ("NSW", "SA"), ("NSW", "V"), ("V", "SA"), ("V", "NSW"), ("V", "T")]
+# colors = ["red", "blue", "green", "yellow"]
+
+regions = ['BAV', 'BAD', 'SAAR', 'RHINE', 'WEST', 'HES', 'THUR', 'SAX', 'SAXAN', 'LOWSAX', 'HOLS', 'BRAND', 'MECK']
+borders = [('BAV', 'BAD'), ('BAV', 'HES'), ('BAV', 'THUR'), ('BAV', 'SAX'), ('BAD', 'HES'), ('BAD', 'RHINE'),
+           ('SAAR', 'RHINE'), ('RHINE', 'HES'), ('RHINE', 'WEST'), ('WEST', 'HES'), ('WEST', 'LOWSAX'), ('HES', 'THUR'),
+           ('HES', 'LOWSAX'), ('THUR', 'SAX'), ('THUR', 'LOWSAX'), ('THUR', 'SAXAN'), ('SAX', 'SAXAN'), ('SAX', 'BRAND'),
+           ('SAXAN', 'BRAND'), ('SAXAN', 'LOWSAX'), ('LOWSAX', 'BRAND'), ('LOWSAX', 'HOLS'), ('LOWSAX', 'MECK'),
+           ('HOLS', 'MECK'), ('BRAND', 'MECK')]
+
+colors = ["red", "blue", "green"]
 
 
 def read_problem_from_file(name):
@@ -38,15 +47,15 @@ def solve(solver):
 
 
 def FC():
-    solve(BacktrackingForwardCheck(forwardcheck=True))
+    solve(BacktrackingForwardCheck(forwardcheck=True, mrv=False))
 
 
 def MRV():
-    solve(BacktrackingMinimumRemainingValues(forwardcheck=False))
+    solve(BacktrackingMinimumRemainingValues(forwardcheck=False, mrv=True))
 
 
 def FC_MRV():
-    solve(BacktrackingForwardCheckingMRV(forwardcheck=True))
+    solve(BacktrackingForwardCheckingMRV(forwardcheck=True, mrv=True))
 
 
 if __name__ == '__main__':

@@ -30,16 +30,23 @@ class Problem(object):
         G.add_edges_from(edges)
         color_map = {}
         for node in self.all_variables:
-            color_map[node] = self._solution[node]
+            if type(self._solution[node]) != 'NoneType':
+                color_map[node] = self._solution[node]
+            else:
+                print("There is no solution!")
+                break
         node_colors = [color_map.get(node) for node in G.nodes()]
 
-        print(color_map)
+        if color_map:
+            print(color_map)
 
-        plt.title(self._solver.get_description())
-        layout = nx.spring_layout(G, k=1, seed=112)
-        nx.draw(G, pos=layout, with_labels=True, node_color=node_colors, node_size=2000,
-                cmap=plt.cm.get_cmap('rainbow'))
-        plt.show()
+            plt.title(self._solver.get_description())
+            layout = nx.spring_layout(G, k=1, seed=112)
+            nx.draw(G, pos=layout, with_labels=True, node_color=node_colors, node_size=2000,
+                    cmap=plt.cm.get_cmap('rainbow'))
+            plt.show()
+        else:
+            print("There is no solution!")
 
     def get_solution(self):
         domains, constraints, vconstraints = self._get_args()
