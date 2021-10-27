@@ -19,6 +19,8 @@ Dacă după cel mult 2*n pași jucătorul B a propus secvența de culori corespu
 - &#9744; 4. (0.3) Implementați o interfață pentru jucătorul B uman, cu posibilitatea introducerii unei secvențe de culori, afișarea numărului de potriviri și afișarea câștigătorului jocului.
 - &#9744; 5. (0.7) Implementați o strategie pentru jucătorul B folosind algoritmul MINIMAX cu retezarea ALPHA-BETA.
 
+The checkbox means that the problem was solved.
+
 # Output
 ```bash
 TBD
