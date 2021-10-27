@@ -16,7 +16,7 @@ borders = [('BAV', 'BAD'), ('BAV', 'HES'), ('BAV', 'THUR'), ('BAV', 'SAX'), ('BA
            ('SAXAN', 'BRAND'), ('SAXAN', 'LOWSAX'), ('LOWSAX', 'BRAND'), ('LOWSAX', 'HOLS'), ('LOWSAX', 'MECK'),
            ('HOLS', 'MECK'), ('BRAND', 'MECK')]
 
-colors = ["red", "blue", "green"]
+colors = ["red", "blue", "green", "yellow"]
 
 
 def read_problem_from_file(name):
@@ -60,7 +60,6 @@ def FC_MRV():
 
 if __name__ == '__main__':
 
-    # https://github.com/IvanSobko/map-coloring-csp
     # https://ktiml.mff.cuni.cz/~bartak/constraints/propagation.html
 
     while True:

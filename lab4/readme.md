@@ -14,12 +14,22 @@ Implementați algoritmul Forward-checking + MRV pentru problema de colorare a un
 ## Steps
 
 - &#9745; 1. (0.3) Modelarea problemei ca o problemă de satisfacere a  constrângerilor.
-- &#9744; 2. (0.5) Implementarea metodei FC.
-- &#9744; 3. (0.2) Implementarea MRV.
+- &#9745; 2. (0.5) Implementarea metodei FC.
+- &#9745; 3. (0.2) Implementarea MRV.
 
 The checkbox means that the problem was solved.
 
 ### Output
+
+#### FC
+
 ```bash
-TBD
+Strategies:
+	(1) BKT for Forward checking
+	(2) BKT for Minimum remaining values
+	(3) BKT for Forward checking + Minimum remaining values
+Select the search strategy you would like to use: 1
+Solution with Backtracking Algorithm with Forward check  took 0.6396491527557373 sec and 109072 checks
+{'BAV': 'red', 'BAD': 'blue', 'SAAR': 'red', 'RHINE': 'green', 'WEST': 'red', 'HES': 'yellow', 'THUR': 'blue', 'SAX': 'green', 'SAXAN': 'red', 'LOWSAX': 'green', 'HOLS': 'red', 'BRAND': 'blue', 'MECK': 'yellow'}
 ```
+![output.png](output.png)
