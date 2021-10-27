@@ -135,7 +135,7 @@ class BacktrackingMinimumRemainingValues(Solver):
 
 
 class BacktrackingForwardCheck(Solver):
-    def __init__(self, forwardcheck=True, mrv=True):
+    def __init__(self, forwardcheck=True, mrv=False):
         super().__init__()
         self._forward_check = forwardcheck
         self._mrv = mrv

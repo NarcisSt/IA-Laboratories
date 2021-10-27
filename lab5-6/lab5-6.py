@@ -29,21 +29,13 @@ def countFromArray(array, n):
     return array.count(n)
 
 
-def selectRandomI(state):
-    numbers = random.randrange(1, state.m * state.n)
-    lst1 = []
-    for value in range(numbers):
-        lst2 = [random.randrange(1, state.n), random.randrange(1, state.m)]
-        lst1.append(lst2)
-    return lst1
-
-
 def selectRandom(state):
     numbers = random.randrange(1, state.m * state.n)
     lst1 = []
     for value in range(numbers):
         aux1 = random.randrange(state.n)
-        if countFromArray(list(zip(*lst1))[0], aux1) < state.m:
+        first_tuple_elements = [a_tuple[0] for a_tuple in lst1]
+        if countFromArray(first_tuple_elements, aux1) < state.m:
             lst2 = [aux1, random.randrange(1, state.m)]
             lst1.append(lst2)
         else:
@@ -53,5 +45,5 @@ def selectRandom(state):
 
 
 if __name__ == '__main__':
-    initialState = getInitialState(8, 6, 4)
-    print(selectRandomI(initialState))
+    initialState = getInitialState(4, 3, 2)
+    print(selectRandom(initialState))
