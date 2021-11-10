@@ -13,6 +13,10 @@ def sigmoid(z):
     return 1.0 / (1.0 + np.exp(-z))
 
 
+def sigmoid_derivative(z):
+    return sigmoid(z) * (1.0 - sigmoid(z))
+
+
 if __name__ == '__main__':
     learning_rate = float(input("Enter the learning rate: "))
     max_error = float(input("Enter the max error: "))
