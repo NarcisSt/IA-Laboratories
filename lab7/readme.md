@@ -19,8 +19,8 @@ tastatura.
 
 ## Steps
 
-- &#9744; 1. (0.1) citirea datelor
-- &#9744; 2. (0.1) functia de activare sigmoida
+- &#9745; 1. (0.1) citirea datelor
+- &#9745; 2. (0.1) functia de activare sigmoida
 - &#9744; 3. (0.2) propagarea inainte
 - &#9744; 4. (0.3) propagare inapoi
     - &#9744; 4a. calculul gradientilor si corectia ponderilor pentru stratul de iesire
@@ -32,4 +32,15 @@ The checkbox means that the problem was solved.
 
 # Output
 ```bash
+Enter the learning rate: 10.0
+Enter the max error: 0.000001
+Enter the max number of epochs: 20000
+The function is: 
+0 0 0
+0 1 0
+1 0 0
+1 1 1
+0 0 0 1
+Process finished with exit code 0
+
 ```
