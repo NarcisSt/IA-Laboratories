@@ -26,7 +26,7 @@ Pe malul stâng al unui râu sunt n cupluri (soț-soție) și o barcă în care 
 The checkbox means that the problem was solved.
 
 ### Output
-```bash
+```commandline
 Enter the number of couples: 3
 How many persons can the boat hold: 2
 

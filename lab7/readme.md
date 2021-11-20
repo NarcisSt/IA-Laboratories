@@ -31,7 +31,7 @@ tastatura.
 The checkbox means that the problem was solved.
 
 # Output
-```bash
+```commandline
 Enter the learning rate: 10.0
 Enter the max error: 0.000001
 Enter the max number of epochs: 20000
@@ -42,5 +42,4 @@ The function is:
 1 1 1
 0 0 0 1
 Process finished with exit code 0
-
 ```

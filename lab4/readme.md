@@ -23,7 +23,7 @@ The checkbox means that the problem was solved.
 
 #### FC
 
-```bash
+```commandline
 Strategies:
 	(1) BKT for Forward checking
 	(2) BKT for Minimum remaining values

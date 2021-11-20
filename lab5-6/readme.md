@@ -17,12 +17,12 @@ Dacă după cel mult 2*n pași jucătorul B a propus secvența de culori corespu
 - &#9745; 2. (0.2) Implementați o funcție care alege aleator k bile din cele m*n disponibile.
 - &#9745; 3. (0.2) Implementați o funcție care compară o secvență de k culori cu secvența generată de funcția anterioară și întoarce o valoare între 0 și k corespunzătoare numărului de potriviri între cele două șiruri.
 - &#9745; 4. (0.3) Implementați o interfață pentru jucătorul B uman, cu posibilitatea introducerii unei secvențe de culori, afișarea numărului de potriviri și afișarea câștigătorului jocului.
-- &#9744; 5. (0.7) Implementați o strategie pentru jucătorul B folosind algoritmul MINIMAX cu retezarea ALPHA-BETA.
+- &#9745; 5. (0.7) Implementați o strategie pentru jucătorul B folosind algoritmul MINIMAX cu retezarea ALPHA-BETA.
 
 The checkbox means that the problem was solved.
 
 # Output
-```bash
+```commandline
 
 
 1 - RED, 2 - GREEN, 3 - YELLOW, 4 - BLUE, 5 - BLACK, 6 - ORANGE
