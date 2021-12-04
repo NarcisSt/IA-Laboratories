@@ -9,9 +9,9 @@ Completați ontologia disponibilă [aici](http://cso.kmi.open.ac.uk/downloads) (
 ## Steps
 
 - &#9745; 1. (0.2) Adăugați 3 concepte noi (din domeniul tezei de licență sau din domeniul “Inteligență Artificială”). Adăugați o relație semantică nouă și conectați două concepte cu această relație. Folosiți pentru ambele sarcini unul din editoarele de mai jos.
-- &#9744; 2. (0.3) Implementați un program care primește la linia de comandă un cuvânt, dacă el există în ontologie ca lexicalizare a unui concept afișează toate relațiile “superTopicOf” în care acel concept este membru.
-- &#9744; 3. Pentru  textul de [aici](https://drive.google.com/file/d/1OEIZrcV5dOSeLvx-cKNi-7F4_hFRy7kj/view) folosiți unul din instrumentele disponibile pentru marcarea părților de vorbire (POS tagging). Pe fișierul rezultat căutați propoziții în care apar două substantive cu un verb între ele și extrageți într-un fișier, pe câte un rând, toate aceste propozițiii. Între substantive și verb pot fi și alte părți de vorbire.
-- &#9744; 4. (0.2) Din fișierul extras la punctul anterior extrageți un alt fișier în care includeți numai fragmente în care apare lexicalizarea cel puțin a unui concept din ontologie.
+- &#9745; 2. (0.3) Implementați un program care primește la linia de comandă un cuvânt, dacă el există în ontologie ca lexicalizare a unui concept afișează toate relațiile “superTopicOf” în care acel concept este membru.
+- &#9745; 3. (0.3) Pentru  textul de [aici](https://drive.google.com/file/d/1OEIZrcV5dOSeLvx-cKNi-7F4_hFRy7kj/view) folosiți unul din instrumentele disponibile pentru marcarea părților de vorbire (POS tagging). Pe fișierul rezultat căutați propoziții în care apar două substantive cu un verb între ele și extrageți într-un fișier, pe câte un rând, toate aceste propozițiii. Între substantive și verb pot fi și alte părți de vorbire.
+- &#9745; 4. (0.2) Din fișierul extras la punctul anterior extrageți un alt fișier în care includeți numai fragmente în care apare lexicalizarea cel puțin a unui concept din ontologie.
 
 The checkbox means that the problem was solved.
 
@@ -22,5 +22,12 @@ The checkbox means that the problem was solved.
 
 # Output
 ```commandline
-TBD
+b)
+Please enter the word to be searched in the ontology: java
+('https://cso.kmi.open.ac.uk/topics/high_level_languages', 'http://cso.kmi.open.ac.uk/schema/cso#superTopicOf', 'https://cso.kmi.open.ac.uk/topics/java') java
+('https://cso.kmi.open.ac.uk/topics/object_oriented_programming', 'http://cso.kmi.open.ac.uk/schema/cso#superTopicOf', 'https://cso.kmi.open.ac.uk/topics/java') java
+('https://cso.kmi.open.ac.uk/topics/object-oriented_programming', 'http://cso.kmi.open.ac.uk/schema/cso#superTopicOf', 'https://cso.kmi.open.ac.uk/topics/java') java
+('https://cso.kmi.open.ac.uk/topics/computer_programming_languages', 'http://cso.kmi.open.ac.uk/schema/cso#superTopicOf', 'https://cso.kmi.open.ac.uk/topics/java') java
+
+Process finished with exit code 0
 ```

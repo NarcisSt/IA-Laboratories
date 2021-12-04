@@ -96,7 +96,7 @@ class NN:
             delta_biases[-i] = delta
             delta_weights[-i] = np.dot(delta, layers_outputs[-i - 1].transpose())
 
-        return (delta_weights, delta_biases, error)
+        return delta_weights, delta_biases, error
 
     def feed_forward(self, inp):
         x = inp
