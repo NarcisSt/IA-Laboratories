@@ -6,3 +6,4 @@
 - Lab 5-6 [visit here](https://github.com/NarcisSt/IA-Laboratories/tree/master/lab5-6)
 - Lab 7 [visit here](https://github.com/NarcisSt/IA-Laboratories/tree/master/lab7)
 - Lab 8 [visit here](https://github.com/NarcisSt/IA-Laboratories/tree/master/lab8)
+- Lab 9-10 [visit here](https://github.com/NarcisSt/IA-Laboratories/tree/master/lab9-10)
