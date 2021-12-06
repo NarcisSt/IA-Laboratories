@@ -23,9 +23,9 @@ recompensa este egală cu 1, altfel este 0.
 
 I. (1.0) Implementarea algoritmului Q-learning
 
-- &#9744; a. (0.1) Inițializarea tabelei Q, a parametrilor algoritmului și a stării inițiale.
-- &#9744; b. (0.1) Pentru o stare s, identifică starea următoare s’ prin aplicarea unei acțiuni a.
-- &#9744; c. (0.8) Implementați algoritmul Q-learning pentru a identifica drumul pe care trebuie să-l parcurgă agentul
+- &#9745; a. (0.1) Inițializarea tabelei Q, a parametrilor algoritmului și a stării inițiale.
+- &#9745; b. (0.1) Pentru o stare s, identifică starea următoare s’ prin aplicarea unei acțiuni a.
+- &#9745; c. (0.8) Implementați algoritmul Q-learning pentru a identifica drumul pe care trebuie să-l parcurgă agentul
     - selectează acțiunea cu cea mai mare valoare Q din starea s’
     - actualizează valorile Q
     - actualizează starea curentă
@@ -42,5 +42,8 @@ The checkbox means that the problem was solved.
 
 # Output
 ```commandline
-TBD
+Training started!
+Training ended!
+Path length: 15
 ```
+![img.png](game.png)
