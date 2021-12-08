@@ -4,7 +4,7 @@ import lightrdf
 TEXT_FILE = 'computer-science.txt'
 CREATED_FILE = 'created-file.txt'
 ONTOLOGY_FILE = 'ontology.owl'
-ONTOLOGY_CHECK_FILE = 'ontology-check-file'
+ONTOLOGY_CHECK_FILE = 'ontology-check-file.txt'
 
 
 def check_for_ontology(phrase):

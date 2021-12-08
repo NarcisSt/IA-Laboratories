@@ -220,7 +220,7 @@ class MazeApp:
         for i in range(self.n):
             for j in range(self.m):
                 if self.maze[i][j] == cell_value:
-                    return (i, j)
+                    return i, j
         return None
 
     def valid_maze_indexes(self, line, column):
@@ -330,7 +330,7 @@ class MazeApp:
     def check_mouse_inside_maze(self, x, y):
         if not (0 <= x < self.maze_width and 0 <= y < self.maze_height):
             return None
-        return (x // self.maze_cell_dim, y // self.maze_cell_dim)
+        return x // self.maze_cell_dim, y // self.maze_cell_dim
 
     def get_input_box_value(self, input_box_index):
         if not (0 <= input_box_index < len(self.input_boxes)):
