@@ -79,9 +79,9 @@ class Maze:
 
 
 if __name__ == '__main__':
-    # iterations_count = int(input("\nPlease enter the number of iterations: "))
-    # learning_rate = float(input("\nPlease enter the learning rate:"))
-    # next_prize = float(input("\nPlease enter the value of future reward"))
+    iterations_count = int(input("\nPlease enter the number of iterations: "))
+    learning_rate = float(input("\nPlease enter the learning rate:"))
+    next_prize = float(input("\nPlease enter the value of future reward"))
     print(init_q_table(ACTIONS, STATES))
     print(get_maze_position(2))
     print(get_new_state(2, "LEFT"))
