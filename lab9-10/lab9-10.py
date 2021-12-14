@@ -16,7 +16,7 @@ COLORS = [CELL_COLOR_EMPTY, CELL_COLOR_OBSTACLE,
           CELL_COLOR_START, CELL_COLOR_END, CELL_COLOR_PATH]
 
 WINDOW_WIDTH = 1280
-WINDOW_HEIGHT = 720
+WINDOW_HEIGHT = 750
 WINDOW_OPTION_BAR_GAP = 30
 WINDOW_OPTION_BAR_WIDTH = 280
 
@@ -49,7 +49,7 @@ class MazeAppButton:
         self.y1 = y
         self.x2 = x + width
         self.y2 = y + height
-        self.r = Rectangle(Point(x, y), Point(x+width, y+height))
+        self.r = Rectangle(Point(x, y), Point(x + width, y + height))
         self.textObj = Text(Point(x + width // 2, y + height // 2), text)
         self.callback = callback
         self.cell_callback = cell_callback
@@ -169,12 +169,14 @@ class MazeApp:
             self.maze_width + WINDOW_OPTION_BAR_GAP, 600, button_width, 24, "0.05", "Alpha"))
         self.input_boxes.append(MazeAppInputBox(
             self.maze_width + WINDOW_OPTION_BAR_GAP, 660, button_width, 24, "0.8", "Gamma"))
+        self.input_boxes.append(MazeAppInputBox(
+            self.maze_width + WINDOW_OPTION_BAR_GAP, 720, button_width, 24, "1", "Discount"))
 
     def run(self):
         running = True
         while running:
             mouse_coordinate = self.win.checkMouse()
-            while mouse_coordinate == None:
+            while mouse_coordinate is None:
                 mouse_coordinate = self.win.checkMouse()
 
             button = self.check_mouse_inside_button(
@@ -402,7 +404,7 @@ class MazeApp:
                 if len(valid_moves) == 0:  # there are no valid moves
                     break
                 # select a random next move
-                s = random.randint(0, len(valid_moves)-1)
+                s = random.randint(0, len(valid_moves) - 1)
 
                 nl = valid_moves[s][0]
                 nc = valid_moves[s][1]
