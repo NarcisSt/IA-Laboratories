@@ -1,87 +1,55 @@
-ACTIONS = ["UP", "RIGHT", "DOWN", "LEFT"]
-STATES = ["START", "BLANK", "ICE", "END"]
-n = 9
-m = 9
-maze = [[2, 0, 0, 0, 0, 1, 0, 0, 1],
-        [0, 1, 0, 1, 0, 0, 0, 0, 1],
-        [0, 1, 0, 1, 0, 0, 0, 0, 1],
-        [0, 1, 0, 1, 0, 0, 0, 0, 1],
-        [0, 1, 0, 1, 0, 0, 0, 0, 1],
-        [0, 1, 0, 1, 0, 0, 0, 0, 1],
-        [0, 1, 0, 1, 0, 0, 0, 0, 1],
-        [0, 1, 0, 1, 0, 0, 0, 0, 1],
-        [0, 1, 0, 1, 0, 0, 0, 0, 3]]
+import gym
+from gym import wrappers
+import numpy as np
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
-D_LIN = [-1, 0, 1, 0]
-D_COL = [0, 1, 0, -1]
-VISITED_STATES = [[0 for _ in range(n)] for _ in range(n)]
+env = gym.make("FrozenLake-v1")
+env = wrappers.Monitor(env, '/tmp/frozenlake-qlearning', force=True)
+n_obv = env.observation_space.n
+n_acts = env.action_space.n
 
+learning_rate = 0.1
+gamma = 0.99
+train_episodes = 10000
+episodes = 0
+prev_state = env.reset()
+episode_t = 0
+e = 0.1
 
-def init_q_table(actions1, states1):
-    q_table = [[0 for _ in range(len(actions1))] for _ in range(len(states1))]
-    return q_table
+x = tf.placeholder(shape=[1, 16], dtype=tf.float32)
+W = tf.Variable(tf.random_uniform([16, 4], 0, 0.1))
+out = tf.matmul(x, W)
+act = tf.argmax(out, 1)
+t = tf.placeholder(shape=[1, 4], dtype=tf.float32)
+loss = tf.reduce_sum(tf.square(t - out))
+train_step = tf.train.GradientDescentOptimizer(learning_rate=learning_rate).minimize(loss)
 
+sess = tf.Session()
+init = tf.global_variables_initializer()
+sess.run(init)
 
-def get_maze_position(cell_value):
-    for i in range(n):
-        for j in range(m):
-            if maze[i][j] == cell_value:
-                return i, j
-    return None
+while episodes < train_episodes:
+    episode_t += 1
+    # take noisy action 
+    action, qvalues = sess.run([act, out], feed_dict={x: np.identity(16)[prev_state:prev_state + 1]})
+    if (np.random.rand(1)) < e:
+        action[0] = env.action_space.sample()
+    next_state, rew, done, _ = env.step(action[0])
 
+    # find targetQ values and update model
+    qnext_values = sess.run([out], feed_dict={x: np.identity(16)[next_state:next_state + 1]})
+    max_q = np.max(qnext_values)
+    targetq = qvalues
+    targetq[0, action[0]] = rew + gamma * max_q
+    sess.run([train_step], feed_dict={x: np.identity(16)[prev_state:prev_state + 1], t: targetq})
+    prev_state = next_state
 
-def not_visited(state):
-    position = get_maze_position(state)
-    lst = list(position)
-    return VISITED_STATES[lst[0]][lst[1]]
-
-
-def get_new_state(state, action):
-    position = ()
-    if not_visited(state) == 0:
-        if state == 3 or state == 1:
-            return "You are on ice or finish position"
-        if state == 2 or state == 0:
-            position = get_maze_position(state)
-            if action == "UP":
-                lst = list(position)
-                lst[0] -= 1
-                VISITED_STATES[lst[0]][lst[1]] = 1
-                position = tuple(lst)
-            elif action == "DOWN":
-                lst = list(position)
-                lst[0] += 1
-                VISITED_STATES[lst[0]][lst[1]] = 1
-                position = tuple(lst)
-            elif action == "RIGHT":
-                lst = list(position)
-                lst[1] += 1
-                VISITED_STATES[lst[0]][lst[1]] = 1
-                position = tuple(lst)
-            elif action == "LEFT":
-                lst = list(position)
-                lst[1] -= 1
-                VISITED_STATES[lst[0]][lst[1]] = 1
-                position = tuple(lst)
-            else:
-                return "Incorrect action"
-            lst = list(position)
-            if lst[0] < 0 or lst[1] < 0:
-                return "Invalid action"
-    else:
-        print("State already visited")
-
-    return position
-
-
-class Maze:
-    pass
-
-
-if __name__ == '__main__':
-    iterations_count = int(input("\nPlease enter the number of iterations: "))
-    learning_rate = float(input("\nPlease enter the learning rate:"))
-    next_prize = float(input("\nPlease enter the value of future reward"))
-    print(init_q_table(ACTIONS, STATES))
-    print(get_maze_position(2))
-    print(get_new_state(2, "LEFT"))
+    # episode finished
+    if done:
+        episodes += 1
+        # decrease noise as number of episodes increases
+        e = 1. / ((episodes / 50) + 10)
+        prev_state = env.reset()
+        print("Episode %d finished after %d time steps, reward = %d" % (episodes, episode_t, rew))
+        episode_t = 0

@@ -27,6 +27,7 @@ D_COL = [0, 1, 0, -1]
 rgx_numbers = re.compile(r"(\d+\.\d+|\d+)")
 
 
+# defines the input boxes where we have to type the learning rate, number of iterations, etc..
 class MazeAppInputBox:
     def __init__(self, x, y, width, height, default_value="0.0", default_text="None"):
         self.textObj = Text(
@@ -43,6 +44,7 @@ class MazeAppInputBox:
         return self.box.getText()
 
 
+# defines the action buttons from the app
 class MazeAppButton:
     def __init__(self, button_index, x, y, width, height, text, callback, cell_callback=None):
         self.x1 = x
@@ -72,6 +74,7 @@ class MazeAppButton:
         return self.x1 <= x <= self.x2 and self.y1 <= y <= self.y2
 
 
+# the main class, drawing the buttons, inputs, maze, etc...
 class MazeApp:
     def __init__(self, maze_file_path, window_width, window_height):
         self.wwidth = window_width
@@ -170,7 +173,7 @@ class MazeApp:
         self.input_boxes.append(MazeAppInputBox(
             self.maze_width + WINDOW_OPTION_BAR_GAP, 660, button_width, 24, "0.8", "Gamma"))
         self.input_boxes.append(MazeAppInputBox(
-            self.maze_width + WINDOW_OPTION_BAR_GAP, 720, button_width, 24, "1", "Discount"))
+            self.maze_width + WINDOW_OPTION_BAR_GAP, 720, button_width, 24, "0.1", "Test"))
 
     def run(self):
         running = True
@@ -232,11 +235,12 @@ class MazeApp:
         iterations = self.get_input_box_value(0)
         alpha = self.get_input_box_value(1)
         gamma = self.get_input_box_value(2)
-        if iterations is None or alpha is None or gamma is None:
+        test = self.get_input_box_value(3)
+        if iterations is None or alpha is None or gamma is None or test is None:
             return
         iterations = int(iterations)
         print("Training started!")
-        self.q_learning(iterations, alpha, gamma)
+        self.q_learning(iterations, alpha, gamma, test)
         print("Training ended!")
 
     def get_sorted(self, arr):
@@ -381,7 +385,7 @@ class MazeApp:
     def get_max(self, line, column):
         return max(self.q[line][column])
 
-    def q_learning(self, iter, alpha, gamma):
+    def q_learning(self, iter, alpha, gamma, test):
         self.q = self.create_q_matrix()
         start_pos = self.get_maze_position(2)
         end_pos = self.get_maze_position(3)

@@ -31,7 +31,7 @@ I. (1.0) Implementarea algoritmului Q-learning
     - actualizează starea curentă
     - repetă
     
-II. (0.6) Utilizarea unei rețele neuronale pentru a aproxima funcția Q / Implementarea algoritmului Deep
+II. &#9745; (0.6) Utilizarea unei rețele neuronale pentru a aproxima funcția Q / Implementarea algoritmului Deep
 Q-learning
 
 The checkbox means that the problem was solved.
